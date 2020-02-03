@@ -1,1 +1,1 @@
-worker: python 파일이름.py
+worker: python 배그봇.py
