@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import os
 
 client = discord.Client()
 
@@ -18,7 +19,6 @@ async def on_message(message):
     if message.content.startswith('!도움말'):
         embed = discord.Embed(title="도움말", color=0x00ff00)
         embed.add_field(name="맵", value="**사용법**: ``!맵 [맵]``", inline=True)
-        embed.add_field(name="준비중", value="준비중", inline=False)
         await message.channel.send(embed=embed)
     if message.content.startswith('!맵 미라마'):
         embed = discord.Embed()
@@ -55,5 +55,5 @@ async def on_message(message):
         embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
         await message.channel.send(embed=embed)
 
-
-client.run("NjczNzY1MzI1NTM5NTA4MjI0.XjfrfA.1sKMcYj3wiT2I3yhvmhJLB5e7Ow")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
