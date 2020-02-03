@@ -55,6 +55,10 @@ async def on_message(message):
         embed = discord.Embed()
         embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
         await message.channel.send(embed=embed)
+    if message.content.startswith('!!!오늘의 퀴즈'):
+        embed = discord.Embed()
+        embed.add_field(name="1", value="500m짜리 운동장에 달팽이가 있다. 이 달팽이는 이상하게도 운동장을 왼쪽으로 돌면 90분밖에 안걸리지만 오른쪽으로 돌면 1시간 30분이나 걸린다. 이유가 뭘까요?", color=0x555555, inline=True)
+        await message.channel.send(embed=embed)
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
