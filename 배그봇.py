@@ -54,10 +54,6 @@ async def on_message(message):
         embed = discord.Embed()
         embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
         await message.channel.send(embed=embed)
-    if message.content.startswith('!서현이 잘생김'):
-        embed = discord.Embed()
-        embed.add_field(name="서현은..", value="공식 변태 + 바보 + 멍청이 + 개못생김", color=0x555555)
-        await message.channel.send(embed=embed)
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
