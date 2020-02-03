@@ -19,7 +19,6 @@ async def on_message(message):
     if message.content.startswith('!도움말'):
         embed = discord.Embed(title="도움말", color=0x555555)
         embed.add_field(name="맵", value="**사용법**: ``!맵 [맵]``", inline=True)
-        embed.set_image(url="https://imgur.com/dIAkEtc")
         embed.set_footer(text = "PUBG-BOT")
         await message.channel.send(embed=embed)
     if message.content.startswith('!맵 미라마'):
