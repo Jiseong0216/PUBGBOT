@@ -1,16 +1,17 @@
 import discord
 import asyncio
+import datetime
 import os
 
 client = discord.Client()
 
-
+now = datetime.now()
 
 @client.event
 async def on_ready():
     print(client.user.id)
     print('ready')
-    game = discord.Game('!도움말 | PUBG BOT')
+    game = discord.Game(now)
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
