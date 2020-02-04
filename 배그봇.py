@@ -16,16 +16,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
-    
     if message.content.startswith('!도움말'):
         embed = discord.Embed(title="도움말", color=0x555555)
-        msg = '도움말입니다. {0.author.mention}'.format(message)
         embed.add_field(name="맵", value="**사용법**: ``!맵 [맵]``", inline=True)
         embed.set_footer(text = "PUBG-BOT")
         await message.channel.send(embed=embed)
-        await client.send_message(message.channel,msg)
     if message.content.startswith('!맵 미라마'):
         embed = discord.Embed()
         embed.set_image(url="https://imgur.com/zpkQEYO")
@@ -60,6 +55,17 @@ async def on_message(message):
         embed = discord.Embed()
         embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
         await message.channel.send(embed=embed)
+ 
+@client.event
+async def sendMessage(color, title, value, should_delete=True, channel=""):
+    embed = discord.Embed(color=color)
+    embed.add_field(name=title, value=value, inline=False)
+    if channel == "":
+        msg = await client.send_message(message_obj.channel, embed=embed)
+    else:
+        msg = await client.send_message(client.get_channel(channel), embed=embed)
+    if should_delete:
+        await delete_msg(msg)
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
