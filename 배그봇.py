@@ -16,6 +16,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.author == client.user:
+        return
+    
     if message.content.startswith('!도움말'):
         embed = discord.Embed(title="도움말", color=0x555555)
         msg = '도움말입니다. {0.author.mention}'.format(message)
