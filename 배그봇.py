@@ -55,11 +55,6 @@ async def on_message(message):
         embed = discord.Embed()
         embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
         await message.channel.send(embed=embed)
-        
-@client.event
-async def on_member_join(member):
-    role = discord.utils.get(member.server.roles, name='NEW!')
-    await client.add_roels(member, role)
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
