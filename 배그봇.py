@@ -53,12 +53,9 @@ async def on_message(message):
         await message.channel.send(embed=embed)
     if message.content.startswith('!!!오늘의 공지'):
         embed = discord.Embed()
-        embed.add_field(name="오늘의 공지!", value="공식 서버가 될 날이 얼마 안남았습니다.\n조금만 더 기다려 주세요!")
+        embed.add_field(name="오늘의 공지!", value="배고프다.")
         await message.channel.send(embed=embed)
-    if message.content.startswith('!공지'):
-        channel = message.content[7:25]
-        msg = message.content[26:]
-        await client.get_channel(int(channel)).send(msg)
+
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
